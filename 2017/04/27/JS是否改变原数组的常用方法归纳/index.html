@@ -1,0 +1,676 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数组," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="改变原数组的:1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。12345678var myFish = [&amp;quot;angel&amp;quot;, &amp;quot;clown&amp;quot;, &amp;quot;mandarin&amp;quot;, &amp;quot;surgeon&amp;quot;];console.log(myFish); // [&amp;quot;angel&amp;quot;, &amp;quot;clow">
+<meta name="keywords" content="数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS是否改变原数组的常用方法归纳">
+<meta property="og:url" content="http://yoursite.com/2017/04/27/JS是否改变原数组的常用方法归纳/index.html">
+<meta property="og:site_name" content="It is for me">
+<meta property="og:description" content="改变原数组的:1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。12345678var myFish = [&amp;quot;angel&amp;quot;, &amp;quot;clown&amp;quot;, &amp;quot;mandarin&amp;quot;, &amp;quot;surgeon&amp;quot;];console.log(myFish); // [&amp;quot;angel&amp;quot;, &amp;quot;clow">
+<meta property="og:updated_time" content="2016-11-26T17:20:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS是否改变原数组的常用方法归纳">
+<meta name="twitter:description" content="改变原数组的:1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。12345678var myFish = [&amp;quot;angel&amp;quot;, &amp;quot;clown&amp;quot;, &amp;quot;mandarin&amp;quot;, &amp;quot;surgeon&amp;quot;];console.log(myFish); // [&amp;quot;angel&amp;quot;, &amp;quot;clow">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/27/JS是否改变原数组的常用方法归纳/"/>
+
+
+  <title> JS是否改变原数组的常用方法归纳 | It is for me </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">It is for me</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS是否改变原数组的常用方法归纳
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-27T21:33:56+08:00" content="2017-04-27">
+              2017-04-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/27/JS是否改变原数组的常用方法归纳/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/JS是否改变原数组的常用方法归纳/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="改变原数组的"><a href="#改变原数组的" class="headerlink" title="改变原数组的:"></a>改变原数组的:</h3><h4 id="1-pop-删除一个数组中的最后的一个元素，并且返回这个元素。"><a href="#1-pop-删除一个数组中的最后的一个元素，并且返回这个元素。" class="headerlink" title="1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。"></a>1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var myFish = [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;];</div><div class="line"></div><div class="line">console.log(myFish); // [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;];</div><div class="line"></div><div class="line">var popped = myFish.pop();</div><div class="line"></div><div class="line">console.log(myFish);  // [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;]</div><div class="line">console.log(popped); // [&quot;surgeon&quot;];</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="2-push-添加一个或多个元素到数组的末尾，并返回数组新的长度（length-属性值）。"><a href="#2-push-添加一个或多个元素到数组的末尾，并返回数组新的长度（length-属性值）。" class="headerlink" title="2. push() :  添加一个或多个元素到数组的末尾，并返回数组新的长度（length 属性值）。"></a>2. push() :  添加一个或多个元素到数组的末尾，并返回数组新的长度（length 属性值）。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var sports = [&quot;soccer&quot;, &quot;baseball&quot;];</div><div class="line">var total = sports.push(&quot;football&quot;, &quot;swimming&quot;);</div><div class="line"></div><div class="line">console.log(sports); // [&quot;soccer&quot;, &quot;baseball&quot;, &quot;football&quot;, &quot;swimming&quot;]</div><div class="line">console.log(total);  // 4</div></pre></td></tr></table></figure>
+<h4 id="3-shift-删除数组的-第一个-元素，并返回这个元素。该方法会改变数组的长度。"><a href="#3-shift-删除数组的-第一个-元素，并返回这个元素。该方法会改变数组的长度。" class="headerlink" title="3. shift() : 删除数组的 第一个 元素，并返回这个元素。该方法会改变数组的长度。"></a>3. shift() : 删除数组的 第一个 元素，并返回这个元素。该方法会改变数组的长度。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var myFish = [&apos;angel&apos;, &apos;clown&apos;, &apos;mandarin&apos;, &apos;surgeon&apos;];</div><div class="line"></div><div class="line">console.log(&apos;调用 shift 之前: &apos; + myFish);</div><div class="line">// &quot;调用 shift 之前: angel,clown,mandarin,surgeon&quot;</div><div class="line"></div><div class="line">var shifted = myFish.shift(); </div><div class="line"></div><div class="line">console.log(&apos;调用 shift 之后: &apos; + myFish); </div><div class="line">// &quot;调用 shift 之后: clown,mandarin,surgeon&quot; </div><div class="line"></div><div class="line">console.log(&apos;被删除的元素: &apos; + shifted); </div><div class="line">// &quot;被删除的元素: angel&quot;</div></pre></td></tr></table></figure>
+<h4 id="4-unshift-在数组的开头添加一个或者多个元素，并返回数组新的-length-值。"><a href="#4-unshift-在数组的开头添加一个或者多个元素，并返回数组新的-length-值。" class="headerlink" title="4. unshift() :  在数组的开头添加一个或者多个元素，并返回数组新的 length 值。"></a>4. unshift() :  在数组的开头添加一个或者多个元素，并返回数组新的 length 值。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2];</div><div class="line"></div><div class="line">arr.unshift(0); //result of call is 3, the new array length</div><div class="line">// arr is [0, 1, 2]</div><div class="line"></div><div class="line">arr.unshift(-2, -1); // = 5</div><div class="line">// arr is [-2, -1, 0, 1, 2]</div><div class="line"></div><div class="line">arr.unshift( [-3] );</div><div class="line">// arr is [[-3], -2, -1, 0, 1, 2]</div></pre></td></tr></table></figure>
+<h4 id="5-splice-用新元素替换旧元素，以此修改数组的内容。"><a href="#5-splice-用新元素替换旧元素，以此修改数组的内容。" class="headerlink" title="5. splice() : 用新元素替换旧元素，以此修改数组的内容。"></a>5. splice() : 用新元素替换旧元素，以此修改数组的内容。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var myFish = [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;];</div><div class="line"></div><div class="line">//从第 2 位开始删除 0 个元素，插入 &quot;drum&quot;</div><div class="line">var removed = myFish.splice(2, 0, &quot;drum&quot;);</div><div class="line">//运算后的 myFish:[&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;mandarin&quot;, &quot;surgeon&quot;]</div><div class="line">//被删除元素数组：[]，没有元素被删除</div><div class="line"></div><div class="line">//从第 3 位开始删除 1 个元素</div><div class="line">removed = myFish.splice(3, 1);</div><div class="line">//运算后的myFish：[&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;surgeon&quot;]</div><div class="line">//被删除元素数组：[&quot;mandarin&quot;]</div><div class="line"></div><div class="line">//从第 2 位开始删除 1 个元素，然后插入 &quot;trumpet&quot;</div><div class="line">removed = myFish.splice(2, 1, &quot;trumpet&quot;);</div><div class="line">//运算后的myFish: [&quot;angel&quot;, &quot;clown&quot;, &quot;trumpet&quot;, &quot;surgeon&quot;]</div><div class="line">//被删除元素数组：[&quot;drum&quot;]</div><div class="line"></div><div class="line">//从第 0 位开始删除 2 个元素，然后插入 &quot;parrot&quot;, &quot;anemone&quot; 和 &quot;blue&quot;</div><div class="line">removed = myFish.splice(0, 2, &quot;parrot&quot;, &quot;anemone&quot;, &quot;blue&quot;);</div><div class="line">//运算后的myFish：[&quot;parrot&quot;, &quot;anemone&quot;, &quot;blue&quot;, &quot;trumpet&quot;, &quot;surgeon&quot;]</div><div class="line">//被删除元素的数组：[&quot;angel&quot;, &quot;clown&quot;]</div><div class="line"></div><div class="line">//从第 3 位开始删除 2 个元素</div><div class="line">removed = myFish.splice(3, Number.MAX_VALUE);</div><div class="line">//运算后的myFish: [&quot;parrot&quot;, &quot;anemone&quot;, &quot;blue&quot;]</div><div class="line">//被删除元素的数组：[&quot;trumpet&quot;, &quot;surgeon&quot;]</div></pre></td></tr></table></figure>
+<h4 id="6-sort-对数组的元素做原地的排序，并返回这个数组。-sort-排序可能是不稳定的。默认按照字符串的Unicode码位点（code-point）排序。"><a href="#6-sort-对数组的元素做原地的排序，并返回这个数组。-sort-排序可能是不稳定的。默认按照字符串的Unicode码位点（code-point）排序。" class="headerlink" title="6. sort() : 对数组的元素做原地的排序，并返回这个数组。 sort 排序可能是不稳定的。默认按照字符串的Unicode码位点（code point）排序。"></a>6. sort() : 对数组的元素做原地的排序，并返回这个数组。 sort 排序可能是不稳定的。默认按照字符串的Unicode码位点（code point）排序。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fruit = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</div><div class="line">fruit.sort(); // [&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</div><div class="line"></div><div class="line">var scores = [1, 10, 2, 21]; </div><div class="line">scores.sort(); // [1, 10, 2, 21]</div><div class="line">// Watch out that 10 comes before 2,</div><div class="line">// because &apos;10&apos; comes before &apos;2&apos; in Unicode code point order.</div><div class="line"></div><div class="line">var things = [&apos;word&apos;, &apos;Word&apos;, &apos;1 Word&apos;, &apos;2 Words&apos;];</div><div class="line">things.sort(); // [&apos;1 Word&apos;, &apos;2 Words&apos;, &apos;Word&apos;, &apos;word&apos;]</div><div class="line">// In Unicode, numbers come before upper case letters,</div><div class="line">// which come before lower case letters.</div></pre></td></tr></table></figure>
+<h4 id="7-reverse-颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。"><a href="#7-reverse-颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。" class="headerlink" title="7. reverse() : 颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。"></a>7. reverse() : 颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myArray = [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;];</div><div class="line">myArray.reverse(); </div><div class="line"></div><div class="line">console.log(myArray) // [&apos;three&apos;, &apos;two&apos;, &apos;one&apos;]</div></pre></td></tr></table></figure>
+<h3 id="不改变原数组的"><a href="#不改变原数组的" class="headerlink" title="不改变原数组的:"></a>不改变原数组的:</h3><h4 id="1-slice-会浅复制（shallow-copy）数组的一部分到一个新的数组，并返回这个新数组。"><a href="#1-slice-会浅复制（shallow-copy）数组的一部分到一个新的数组，并返回这个新数组。" class="headerlink" title="1. slice() : 会浅复制（shallow copy）数组的一部分到一个新的数组，并返回这个新数组。"></a>1. slice() : 会浅复制（shallow copy）数组的一部分到一个新的数组，并返回这个新数组。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Our good friend the citrus from fruits example</div><div class="line">var fruits = [&quot;Banana&quot;,  &quot;Orange&quot;, &quot;Lemon&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</div><div class="line">var citrus = fruits.slice(1, 3);</div><div class="line"></div><div class="line">//  puts --&gt; [&quot;Orange&quot;,&quot;Lemon&quot;]</div></pre></td></tr></table></figure>
+<h4 id="2-join-将数组中的所有元素连接成一个字符串。"><a href="#2-join-将数组中的所有元素连接成一个字符串。" class="headerlink" title="2. join() : 将数组中的所有元素连接成一个字符串。"></a>2. join() : 将数组中的所有元素连接成一个字符串。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [&apos;Wind&apos;, &apos;Rain&apos;, &apos;Fire&apos;];</div><div class="line">var myVar1 = a.join();      // myVar1的值变为&quot;Wind,Rain,Fire&quot;</div><div class="line">var myVar2 = a.join(&apos;, &apos;);  // myVar2的值变为&quot;Wind, Rain, Fire&quot;</div><div class="line">var myVar3 = a.join(&apos; + &apos;); // myVar3的值变为&quot;Wind + Rain + Fire&quot;</div><div class="line">var myVar4 = a.join(&apos;&apos;);    // myVar4的值变为&quot;WindRainFire&quot;</div></pre></td></tr></table></figure>
+<h4 id="3-concat-将传入的数组或非数组值与原数组合并-组成一个新的数组并返回"><a href="#3-concat-将传入的数组或非数组值与原数组合并-组成一个新的数组并返回" class="headerlink" title="3.concat() : 将传入的数组或非数组值与原数组合并,组成一个新的数组并返回."></a>3.concat() : 将传入的数组或非数组值与原数组合并,组成一个新的数组并返回.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var alpha = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];</div><div class="line">var numeric = [1, 2, 3];</div><div class="line"></div><div class="line">// 组成新数组 [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, 1, 2, 3]; 原数组 alpha 和 numeric 未被修改</div><div class="line">var alphaNumeric = alpha.concat(numeric);</div></pre></td></tr></table></figure>
+<h4 id="4-map-返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。"><a href="#4-map-返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。" class="headerlink" title="4.map() : 返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。"></a>4.map() : 返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var numbers = [1, 4, 9];</div><div class="line">var roots = numbers.map(Math.sqrt);</div><div class="line">/* roots的值为[1, 2, 3], numbers的值仍为[1, 4, 9] */</div></pre></td></tr></table></figure>
+<h4 id="5-filter-使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。"><a href="#5-filter-使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。" class="headerlink" title="5.filter() : 使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。"></a>5.filter() : 使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function isBigEnough(element) &#123;</div><div class="line">  return element &gt;= 10;</div><div class="line">&#125;</div><div class="line">var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);</div><div class="line">// filtered is [12, 130, 44]</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数组/" rel="tag">#数组</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/27/WordPress建站教程/" rel="next" title="WordPress建站教程">
+                <i class="fa fa-chevron-left"></i> WordPress建站教程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/27/JS是否改变原数组的常用方法归纳/"
+           data-title="JS是否改变原数组的常用方法归纳" data-url="http://yoursite.com/2017/04/27/JS是否改变原数组的常用方法归纳/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/girl.jpeg"
+               alt="泽川" />
+          <p class="site-author-name" itemprop="name">泽川</p>
+          <p class="site-description motion-element" itemprop="description">莫负少年好时光</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wengzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/weng-ze-chuan" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变原数组的"><span class="nav-number">1.</span> <span class="nav-text">改变原数组的:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-pop-删除一个数组中的最后的一个元素，并且返回这个元素。"><span class="nav-number">1.1.</span> <span class="nav-text">1. pop() : 删除一个数组中的最后的一个元素，并且返回这个元素。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-push-添加一个或多个元素到数组的末尾，并返回数组新的长度（length-属性值）。"><span class="nav-number">1.2.</span> <span class="nav-text">2. push() :  添加一个或多个元素到数组的末尾，并返回数组新的长度（length 属性值）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-shift-删除数组的-第一个-元素，并返回这个元素。该方法会改变数组的长度。"><span class="nav-number">1.3.</span> <span class="nav-text">3. shift() : 删除数组的 第一个 元素，并返回这个元素。该方法会改变数组的长度。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-unshift-在数组的开头添加一个或者多个元素，并返回数组新的-length-值。"><span class="nav-number">1.4.</span> <span class="nav-text">4. unshift() :  在数组的开头添加一个或者多个元素，并返回数组新的 length 值。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-splice-用新元素替换旧元素，以此修改数组的内容。"><span class="nav-number">1.5.</span> <span class="nav-text">5. splice() : 用新元素替换旧元素，以此修改数组的内容。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-sort-对数组的元素做原地的排序，并返回这个数组。-sort-排序可能是不稳定的。默认按照字符串的Unicode码位点（code-point）排序。"><span class="nav-number">1.6.</span> <span class="nav-text">6. sort() : 对数组的元素做原地的排序，并返回这个数组。 sort 排序可能是不稳定的。默认按照字符串的Unicode码位点（code point）排序。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-reverse-颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。"><span class="nav-number">1.7.</span> <span class="nav-text">7. reverse() : 颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不改变原数组的"><span class="nav-number">2.</span> <span class="nav-text">不改变原数组的:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-slice-会浅复制（shallow-copy）数组的一部分到一个新的数组，并返回这个新数组。"><span class="nav-number">2.1.</span> <span class="nav-text">1. slice() : 会浅复制（shallow copy）数组的一部分到一个新的数组，并返回这个新数组。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-join-将数组中的所有元素连接成一个字符串。"><span class="nav-number">2.2.</span> <span class="nav-text">2. join() : 将数组中的所有元素连接成一个字符串。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-concat-将传入的数组或非数组值与原数组合并-组成一个新的数组并返回"><span class="nav-number">2.3.</span> <span class="nav-text">3.concat() : 将传入的数组或非数组值与原数组合并,组成一个新的数组并返回.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-map-返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。"><span class="nav-number">2.4.</span> <span class="nav-text">4.map() : 返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-filter-使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。"><span class="nav-number">2.5.</span> <span class="nav-text">5.filter() : 使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">泽川</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"achuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
