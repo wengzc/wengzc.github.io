@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ajax," />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -84,16 +84,17 @@
 
 
 
-<meta name="keywords" content="Ajax">
+<meta name="description" content="写项目时,在配置nginx时需要用到多个IP端口,我总结了下可能会遇到的两个问题(以CentOS系统为例):">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个随机句子引用（jQuery与Ajax的引用）">
-<meta property="og:url" content="http://yoursite.com/2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/index.html">
+<meta property="og:title" content="nginx同IP不同端口配置和多域名同IP同80端口配置">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/nginx同IP不同端口对应多个网站配置/index.html">
 <meta property="og:site_name" content="It is for me">
-<meta property="og:image" content="http://oh3ojs6ov.bkt.clouddn.com/2016-11-29_215312.png">
-<meta property="og:updated_time" content="2016-11-29T14:10:38.000Z">
+<meta property="og:description" content="写项目时,在配置nginx时需要用到多个IP端口,我总结了下可能会遇到的两个问题(以CentOS系统为例):">
+<meta property="og:updated_time" content="2017-09-24T07:15:21.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个随机句子引用（jQuery与Ajax的引用）">
-<meta name="twitter:image" content="http://oh3ojs6ov.bkt.clouddn.com/2016-11-29_215312.png">
+<meta name="twitter:title" content="nginx同IP不同端口配置和多域名同IP同80端口配置">
+<meta name="twitter:description" content="写项目时,在配置nginx时需要用到多个IP端口,我总结了下可能会遇到的两个问题(以CentOS系统为例):">
 
 
 
@@ -114,10 +115,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/24/nginx同IP不同端口对应多个网站配置/"/>
 
 
-  <title> 一个随机句子引用（jQuery与Ajax的引用） | It is for me </title>
+  <title> nginx同IP不同端口配置和多域名同IP同80端口配置 | It is for me </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +258,7 @@
             
             
               
-                一个随机句子引用（jQuery与Ajax的引用）
+                nginx同IP不同端口配置和多域名同IP同80端口配置
               
             
           </h1>
@@ -269,8 +270,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-27T21:33:56+08:00" content="2017-04-27">
-              2017-04-27
+            <time itemprop="dateCreated" datetime="2017-09-24T15:12:35+08:00" content="2017-09-24">
+              2017-09-24
             </time>
           </span>
 
@@ -283,8 +284,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/demo/" itemprop="url" rel="index">
-                    <span itemprop="name">demo</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -299,8 +300,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/" itemprop="commentsCount"></span>
+                <a href="/2017/09/24/nginx同IP不同端口对应多个网站配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/24/nginx同IP不同端口对应多个网站配置/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,11 +324,16 @@
       
 
       
-        <p><img src="http://oh3ojs6ov.bkt.clouddn.com/2016-11-29_215312.png" alt="enter image description here"><br><a id="more"></a></p>
-<h4 id="运行效果"><a href="#运行效果" class="headerlink" title=" 运行效果"></a><center> 运行效果</center></h4><h3 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;contains&quot;&gt;</div><div class="line">    &lt;div class=&quot;quote&quot;&gt;“</div><div class="line">    &lt;span id=&quot;quoteText&quot;&gt; &lt;/span&gt;” </div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;author&quot;&gt; by &lt;span id=&quot;quoteAuthor&quot;&gt;  &lt;/span&gt;&lt;/div&gt;</div><div class="line">    </div><div class="line">    &lt;div class=&quot;button&quot;&gt;</div><div class="line">    &lt;button class=&quot;quoteButton&quot;&gt;New quote&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h3 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">@import url(https://fonts.googleapis.com/css?family=Lobster);</div><div class="line">body &#123;      </div><div class="line">	background-color: #333;</div><div class="line">	color: #333;</div><div class="line">	font-family: &apos;Lobster&apos;, sans-serif;</div><div class="line">    font-size: 30px;</div><div class="line">&#125;</div><div class="line">.contains &#123;</div><div class="line">	width: 600px;</div><div class="line">	padding: 30px 40px;</div><div class="line">	margin: 8% auto auto auto;</div><div class="line">	display:table;</div><div class="line">    background-color:#fff;</div><div class="line">    border-radius: 5px;</div><div class="line">&#125;</div><div class="line">.quote &#123;</div><div class="line">	text-align: center;</div><div class="line">	width: 100%;</div><div class="line">	height: auto;</div><div class="line">	clear: both;</div><div class="line">	font-size: 2em;</div><div class="line">	font-weight: 200px;</div><div class="line">&#125;</div><div class="line">.author &#123;</div><div class="line">	text-align: right;</div><div class="line">	width: 100%;</div><div class="line">	height: auto;</div><div class="line">	clear: both;</div><div class="line">	font-size: 1em;</div><div class="line">	padding-top:20px;</div><div class="line">&#125;</div><div class="line">.button &#123;</div><div class="line">	text-align: center;</div><div class="line">	width: 100%;</div><div class="line">&#125;</div><div class="line">.button .quoteButton &#123;</div><div class="line">	height: 45px;</div><div class="line">	border: none;</div><div class="line">	border-radius: 5px;</div><div class="line">	color: #fff;</div><div class="line">	background-color: #333;</div><div class="line">	font-size: 25px;</div><div class="line">	padding: 8px 18px 6px 18px;</div><div class="line">    margin-top:30px;</div><div class="line">    opacity:1;</div><div class="line">&#125;</div><div class="line">.button:hover &#123;</div><div class="line">    opacity:0.8;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var colors = [&apos;#16a085&apos;, &apos;#27ae60&apos;, &apos;#2c3e50&apos;, &apos;#f39c12&apos;, &apos;#e74c3c&apos;, &apos;#9b59b6&apos;, &apos;#FB6964&apos;, &apos;#342224&apos;, &quot;#472E32&quot;, &quot;#BDBB99&quot;, &quot;#77B1A9&quot;, &quot;#73A857&quot;];</div><div class="line">function getQuote() &#123;</div><div class="line">  $.ajax(&#123;</div><div class="line">  headers: &#123;</div><div class="line">      &quot;X-Mashape-Key&quot;: &quot;OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V&quot;,</div><div class="line">      Accept: &quot;application/json&quot;,</div><div class="line">      &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;</div><div class="line">    &#125;,</div><div class="line">    url: &apos;https://andruxnet-random-famous-quotes.p.mashape.com/cat=&apos;,</div><div class="line">    error: function(XmlHttpRequest, textStatus, errorThrown) &#123;</div><div class="line">        alert(&quot;操作失败!&quot;);</div><div class="line">    &#125;,</div><div class="line">    success: function(response) &#123;</div><div class="line">      var r = JSON.parse(response);</div><div class="line">          $(&apos;#quoteText&apos;).html(r.quote);</div><div class="line">          $(&apos;#quoteAuthor&apos;).html(r.author);</div><div class="line">      var color = Math.floor(Math.random() * colors.length);</div><div class="line">      $(&quot;body&quot;).animate(&#123;</div><div class="line">        backgroundColor: colors[color],</div><div class="line">        color: colors[color]</div><div class="line">      &#125;,1000);</div><div class="line">      $(&quot;.quoteButton&quot;).animate(&#123;</div><div class="line">        backgroundColor: colors[color]</div><div class="line">      &#125;,1000);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(function() &#123;</div><div class="line">  getQuote();</div><div class="line">  $(&quot;.quoteButton&quot;).click(function() &#123;</div><div class="line">    getQuote();</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="运行链接：http-codepen-io-wzc-full-XNeoJg"><a href="#运行链接：http-codepen-io-wzc-full-XNeoJg" class="headerlink" title="运行链接：http://codepen.io/wzc/full/XNeoJg/"></a>运行链接：<a href="http://codepen.io/wzc/full/XNeoJg/" target="_blank" rel="external">http://codepen.io/wzc/full/XNeoJg/</a></h3>
+        <p>写项目时,在配置nginx时需要用到多个IP端口,我总结了下可能会遇到的两个问题(以CentOS系统为例):<br><a id="more"></a></p>
+<h2 id="1-nginx同IP不同端口对应多个网站配置"><a href="#1-nginx同IP不同端口对应多个网站配置" class="headerlink" title="1. nginx同IP不同端口对应多个网站配置"></a>1. nginx同IP不同端口对应多个网站配置</h2><p>这个意思就是如果你有a,b,c三个网站,分别对应3000,4000,5000端口,通过ip + 端口访问不同网站的话,可以配置如下,首先找到/usr/local/nginx/conf/nginx.conf 文件,打开这个配置文件,在文件底部加上这样一句(已有请忽略):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include vhost/*.conf;</div></pre></td></tr></table></figure>
+<p>加入这句的意思是把vhost目录的以.conf结尾的配置文件都加载进来，方便以后新建多个.conf结尾的配置文件,修改后保存nginx.conf文件。<br>然后在vhost目录李新建a.conf,b.conf,c.conf三个配置文件,下面以a.conf为例:<br>依旧是打开/usr/local/nginx/conf/nginx.conf 文件,找到默认的server的配置如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">   listen 80;</div><div class="line">   server_name _;</div><div class="line">   access_log /data/wwwlogs/access_nginx.log combined;</div><div class="line">   root /home/index;</div><div class="line">   index index.html index.htm index.php;</div><div class="line">   #error_page 404 /404.html;</div><div class="line">   #error_page 502 /502.html;</div><div class="line">   location /nginx_status &#123;</div><div class="line">     stub_status on;</div><div class="line">     access_log off;</div><div class="line">     allow 127.0.0.1;</div><div class="line">     deny all;</div><div class="line">   &#125;</div><div class="line">   location ~ [^/]\.php(/|$) &#123;</div><div class="line">     #fastcgi_pass remote_php_ip:9000;</div><div class="line">     fastcgi_pass unix:/dev/shm/php-cgi.sock;</div><div class="line">     fastcgi_index index.php;</div><div class="line">     include fastcgi.conf;</div><div class="line">   &#125;</div><div class="line">   location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ &#123;</div><div class="line">     expires 30d;</div><div class="line">     access_log off;</div><div class="line">   &#125;</div><div class="line">   location ~ .*\.(js|css)?$ &#123;</div><div class="line">     expires 7d;</div><div class="line">     access_log off;</div><div class="line">   &#125;</div><div class="line">   location ~ /\.ht &#123;</div><div class="line">     deny all;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>复制一份server的配置到a.conf，修改端口指向3000，网站程序路径指向对应目录,比如/home/blog<br>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">   listen 3000;</div><div class="line">   server_name _;</div><div class="line">   access_log /data/wwwlogs/access_nginx.log combined;</div><div class="line">   root /home/blog;</div><div class="line">   index index.html index.htm index.php;</div><div class="line">   #error_page 404 /404.html;</div><div class="line">   #error_page 502 /502.html;</div><div class="line">   location /nginx_status &#123;</div><div class="line">     stub_status on;</div><div class="line">     access_log off;</div><div class="line">     allow 127.0.0.1;</div><div class="line">     deny all;</div><div class="line">   &#125;</div><div class="line">   location ~ [^/]\.php(/|$) &#123;</div><div class="line">     #fastcgi_pass remote_php_ip:9000;</div><div class="line">     fastcgi_pass unix:/dev/shm/php-cgi.sock;</div><div class="line">     fastcgi_index index.php;</div><div class="line">     include fastcgi.conf;</div><div class="line">   &#125;</div><div class="line">   location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|mp4|ico)$ &#123;</div><div class="line">     expires 30d;</div><div class="line">     access_log off;</div><div class="line">   &#125;</div><div class="line">   location ~ .*\.(js|css)?$ &#123;</div><div class="line">     expires 7d;</div><div class="line">     access_log off;</div><div class="line">   &#125;</div><div class="line">   location ~ /\.ht &#123;</div><div class="line">     deny all;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>b.conf和c.conf配置参照a.conf配置就可以了,配置完保存并允许nginx -s reload重新加载nginx配置就可以了。</p>
+<h2 id="2-多域名同IP同80端口配置"><a href="#2-多域名同IP同80端口配置" class="headerlink" title="2. 多域名同IP同80端口配置"></a>2. 多域名同IP同80端口配置</h2><p>还有一种情况就是你有多个域名比如a.com和b.com,有不想使用域名 +  端口来打开网站,都想使用80端口来打开网站,那么该如何配置呢,这个也比较简单,配置如下:<br>同样新建a.conf和b.conf,内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">server &#123; </div><div class="line">listen 80; </div><div class="line">server_name  a.com; </div><div class="line">location / &#123; </div><div class="line">proxy_pass http://localhost:3000; </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">server &#123; </div><div class="line">listen 80; </div><div class="line">server_name b.com; </div><div class="line">location / &#123; </div><div class="line">proxy_pass http://localhost:4000; </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>配置完保存并允许nginx -s reload重新加载nginx配置就可以了,这样我们就实现在一台服务器上多域名同IP同80端口的功能了。</p>
+
       
     </div>
 
@@ -349,7 +355,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ajax/" rel="tag">#Ajax</a>
+            <a href="/tags/nginx/" rel="tag">#nginx</a>
           
         </div>
       
@@ -358,16 +364,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/用js来写html的一个小小随机生成成绩表/" rel="next" title="用js来写html的一个小小随机生成成绩表">
-                <i class="fa fa-chevron-left"></i> 用js来写html的一个小小随机生成成绩表
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/27/一个弹幕墙/" rel="prev" title="一个弹幕墙">
-                一个弹幕墙 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/23/inSaying/" rel="prev" title="最近写的一个基于MEAN架构的多人博客项目">
+                最近写的一个基于MEAN架构的多人博客项目 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -394,8 +396,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/"
-           data-title="一个随机句子引用（jQuery与Ajax的引用）" data-url="http://yoursite.com/2017/04/27/一个随机句子引用（jQuery与Ajax的引用）/">
+      <div class="ds-thread" data-thread-key="2017/09/24/nginx同IP不同端口对应多个网站配置/"
+           data-title="nginx同IP不同端口配置和多域名同IP同80端口配置" data-url="http://yoursite.com/2017/09/24/nginx同IP不同端口对应多个网站配置/">
       </div>
     
   </div>
@@ -506,7 +508,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行效果"><span class="nav-number">1.</span> <span class="nav-text"> 运行效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html代码"><span class="nav-number"></span> <span class="nav-text">html代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css代码"><span class="nav-number"></span> <span class="nav-text">css代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js代码"><span class="nav-number"></span> <span class="nav-text">js代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行链接：http-codepen-io-wzc-full-XNeoJg"><span class="nav-number"></span> <span class="nav-text">运行链接：http://codepen.io/wzc/full/XNeoJg/</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-nginx同IP不同端口对应多个网站配置"><span class="nav-number">1.</span> <span class="nav-text">1. nginx同IP不同端口对应多个网站配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-多域名同IP同80端口配置"><span class="nav-number">2.</span> <span class="nav-text">2. 多域名同IP同80端口配置</span></a></li></ol></div>
             
           </div>
         </section>
